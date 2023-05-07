@@ -9,26 +9,24 @@
  * GPL 3.0 Licensed
  */
 
-import BanSchema from './Guilds/Ban';
-import ChannelSchema from './Guilds/Channel';
-import EmojiSchema from './Guilds/Emoji';
-import GuildSchema from './Guilds/Guild';
-import GuildMemberSchema from './Guilds/GuildMember';
-import InviteSchema from './Guilds/Invite';
-import PermissionsOveridesSchema from './Guilds/PermissionsOverides';
-import RoleSchema from './Guilds/Role';
-import WebhookSchema from './Guilds/Webhook';
-import FileSchema from './Misc/File';
-import MessageSchema from './Misc/Message';
-import SettingSchema from './Misc/Settings';
-import VerifcationLinkSchema from './Misc/VerificationLinks';
-import DmSchema from './PrivateMessages/Dm';
-import GroupchatSchema from './PrivateMessages/GroupChat';
-import FriendSchema from './Users/Friend';
-import GiftSchema from './Users/Gift';
-import UserSchema from './Users/User';
-
-
+import BanSchema from './Guilds/Ban.js';
+import ChannelSchema from './Guilds/Channel.js';
+import EmojiSchema from './Guilds/Emoji.js';
+import GuildSchema from './Guilds/Guild.js';
+import GuildMemberSchema from './Guilds/GuildMember.js';
+import InviteSchema from './Guilds/Invite.js';
+import PermissionsOveridesSchema from './Guilds/PermissionsOverides.js';
+import RoleSchema from './Guilds/Role.js';
+import WebhookSchema from './Guilds/Webhook.js';
+import FileSchema from './Misc/File.js';
+import MessageSchema from './Misc/Message.js';
+import SettingSchema from './Misc/Settings.js';
+import VerifcationLinkSchema from './Misc/VerificationLinks.js';
+import DmSchema from './PrivateMessages/Dm.js';
+import GroupchatSchema from './PrivateMessages/GroupChat.js';
+import FriendSchema from './Users/Friend.js';
+import GiftSchema from './Users/Gift.js';
+import UserSchema from './Users/User.js';
 
 export default {
 	BanSchema,
@@ -51,22 +49,21 @@ export default {
 	VerifcationLinkSchema,
 };
 
-export { default as BanSchema } from './Guilds/Ban';
-export { default as ChannelSchema } from './Guilds/Channel';
-export { default as GuildMemberSchema } from './Guilds/GuildMember';
-export { default as GuildSchema } from './Guilds/Guild';
-export { default as InviteSchema } from './Guilds/Invite';
-export { default as RoleSchema } from './Guilds/Role';
-export { default as WebhookSchema } from './Guilds/Webhook';
-export { default as FileSchema } from './Misc/File';
-export { default as MessageSchema } from './Misc/Message';
-export { default as DmSchema } from './PrivateMessages/Dm';
-
-export {default as GroupchatSchema} from './PrivateMessages/GroupChat';
-export {default as FriendSchema} from './Users/Friend';
-export {default as GiftSchema} from './Users/Gift';
-export {default as UserSchema} from './Users/User';
-export {default as SettingSchema} from './Misc/Settings';
-export {default as PermissionsOveridesSchema} from './Guilds/PermissionsOverides';
-export {default as EmojiSchema} from './Guilds/Emoji';
-export {default as VerifcationLinkSchema} from './Misc/VerificationLinks';
+export { default as BanSchema } from './Guilds/Ban.js';
+export { default as ChannelSchema } from './Guilds/Channel.js';
+export { default as GuildMemberSchema } from './Guilds/GuildMember.js';
+export { default as GuildSchema } from './Guilds/Guild.js';
+export { default as InviteSchema } from './Guilds/Invite.js';
+export { default as RoleSchema } from './Guilds/Role.js';
+export { default as WebhookSchema } from './Guilds/Webhook.js';
+export { default as FileSchema } from './Misc/File.js';
+export { default as MessageSchema } from './Misc/Message.js';
+export { default as DmSchema } from './PrivateMessages/Dm.js';
+export { default as GroupchatSchema } from './PrivateMessages/GroupChat.js';
+export { default as FriendSchema } from './Users/Friend.js';
+export { default as GiftSchema } from './Users/Gift.js';
+export { default as UserSchema } from './Users/User.js';
+export { default as SettingSchema } from './Misc/Settings.js';
+export { default as PermissionsOveridesSchema } from './Guilds/PermissionsOverides.js';
+export { default as EmojiSchema } from './Guilds/Emoji.js';
+export { default as VerifcationLinkSchema } from './Misc/VerificationLinks.js';
