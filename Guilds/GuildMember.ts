@@ -9,54 +9,78 @@
  * GPL 3.0 Licensed
  */
 
-import { model, Schema } from 'mongoose';
+import type { Schema } from '../../../Types/Schema';
 
-const GuildMemberSchema = new Schema({
-	_id: {
-		type: String,
-		required: true,
-	},
-
-	Guild: {
-		// Allow easier deletion of guild member schemas when a guild owner deletes their guild
-		type: String,
-		required: true,
-		ref: 'Guilds',
-	},
-
-	User: {
-		type: String,
-		required: true,
-		ref: 'Users',
-	},
-
-	Roles: [
-		{
-			type: String,
-			required: false,
-			ref: 'Roles',
+const GuildMember: Schema = {
+	type: Object,
+	data: {
+		Id: {
+			name: '_id',
+			expected: String,
+			default: null,
+			extended: false,
 		},
-	],
-
-	Nickname: {
-		type: String,
-		required: false,
+		User: {
+			name: 'User',
+			extended: true,
+			extends: 'FriendUser',
+		},
+		Roles: {
+			name: 'Roles',
+			extended: true,
+			extends: 'Roles',
+		},
+		Nickname: {
+			name: 'Nickname',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		JoinedAt: {
+			name: 'JoinedAt',
+			expected: Number,
+			default: Date.now(),
+			extended: false,
+		},
 	},
+};
 
-	JoinedAt: {
-		type: Number,
-		required: true,
-		default: Date.now(),
+// NR = No Roles
+const GuildMemberNR: Schema = {
+	type: Object,
+	data: {
+		Id: {
+			name: '_id',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		User: {
+			name: 'User',
+			extended: true,
+			extends: 'FriendUser',
+		},
+		Roles: {
+			name: 'Roles',
+			expected: Array,
+			default: [],
+			extended: false,
+		},
+		Nickname: {
+			name: 'Nickname',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		JoinedAt: {
+			name: 'JoinedAt',
+			expected: Number,
+			default: Date.now(),
+			extended: false,
+		},
 	},
+};
 
-	Flags: {
-		// 1 << 0 = Left The Guild, 1 << 1 = In The Guild, 1 << 2 = Kicked From The Guild, 1 << 3 = Banned From The Guild, 1 << 4 = Owner Of The Guild
-		type: Number,
-		required: false,
-		default: 0,
-	},
-});
+export default GuildMember;
 
-export default model('GuildMembers', GuildMemberSchema);
-
-export { GuildMemberSchema };
+export { GuildMember, GuildMemberNR };

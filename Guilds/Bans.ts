@@ -9,27 +9,48 @@
  * GPL 3.0 Licensed
  */
 
-import { model, Schema } from 'mongoose';
+import type { Schema } from '../../../Types/Schema';
 
-const GroupchatSchema = new Schema({
-	_id: {
-		type: String,
-		required: true,
-	},
-
-	Users: [
-		{
-			type: String,
-			ref: 'Users',
+const Bans: Schema = {
+	type: Array,
+	data: {
+		id: {
+			name: '_id',
+			expected: String,
+			default: null,
+			extended: false,
 		},
-	],
-
-	Owner: {
-		type: String,
-		ref: 'Users',
+		User: {
+			name: 'User',
+			extends: 'FriendUser',
+			extended: true,
+		},
+		Banner: {
+			name: 'Banner',
+			extends: 'FriendUser',
+			extended: true,
+		},
+		Reason: {
+			name: 'Reason',
+			expected: String,
+			default: 'N/A',
+			extended: false,
+		},
+		BanDate: {
+			name: 'BannedDate',
+			expected: Number,
+			default: Date.now(),
+			extended: false,
+		},
+		UnbanDate: {
+			name: 'UnbanDate',
+			expected: Number,
+			default: null,
+			extended: false,
+		},
 	},
-});
+};
 
-export default model('Groupchats', GroupchatSchema);
+export default Bans;
 
-export { GroupchatSchema };
+export { Bans };

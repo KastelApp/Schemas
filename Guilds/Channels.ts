@@ -9,10 +9,11 @@
  * GPL 3.0 Licensed
  */
 
+import { ChannelTypes, AllowedMentions } from '../../../Constants.js';
 import type { Schema } from '../../../Types/Schema';
 
-const Invite: Schema = {
-	type: Object,
+const Channels: Schema = {
+	type: Array,
 	data: {
 		Id: {
 			name: '_id',
@@ -20,38 +21,63 @@ const Invite: Schema = {
 			default: null,
 			extended: false,
 		},
-		Expires: {
-			name: 'Expires',
-			expected: Date,
+		Name: {
+			name: 'Name',
+			expected: String,
+			default: 'Unknown Channel Name',
+			extended: false,
+		},
+		Description: {
+			name: 'Description',
+			expected: String,
 			default: null,
 			extended: false,
 		},
-		Uses: {
-			name: 'Uses',
+		Type: {
+			name: 'Type',
+			expected: Number,
+			default: ChannelTypes.GuildText,
+			extended: false,
+		},
+		Nsfw: {
+			name: 'Nsfw',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		AllowedMentions: {
+			name: 'AllowedMentions',
+			expected: Number,
+			default: AllowedMentions.All,
+			extended: false,
+		},
+		Parent: {
+			name: 'Parent',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		Children: {
+			name: 'Children',
+			expected: Array,
+			default: null,
+			extended: false,
+		},
+		Position: {
+			name: 'Position',
 			expected: Number,
 			default: 0,
 			extended: false,
 		},
-		MaxUses: {
-			name: 'MaxUses',
+		Permissions: {
+			name: 'Permissions',
 			expected: Number,
-			default: null,
-			extended: false,
-		},
-		Creator: {
-			name: 'Creator',
-			extended: true,
-			extends: 'GuildMember',
-		},
-		Deleteable: {
-			name: 'Deleteable',
-			expected: Boolean,
-			default: true,
+			default: 0,
 			extended: false,
 		},
 	},
 };
 
-export default Invite;
+export default Channels;
 
-export { Invite };
+export { Channels };

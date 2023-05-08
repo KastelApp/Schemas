@@ -11,7 +11,7 @@
 
 import type { Schema } from '../../../Types/Schema';
 
-const Invite: Schema = {
+const FriendUser: Schema = {
 	type: Object,
 	data: {
 		Id: {
@@ -20,38 +20,33 @@ const Invite: Schema = {
 			default: null,
 			extended: false,
 		},
-		Expires: {
-			name: 'Expires',
-			expected: Date,
+		AvatarHash: {
+			name: 'AvatarHash',
+			expected: String,
 			default: null,
 			extended: false,
 		},
-		Uses: {
-			name: 'Uses',
+		Username: {
+			name: 'Username',
+			expected: String,
+			default: 'Unknown Username',
+			extended: false,
+		},
+		Tag: {
+			name: 'Tag',
+			expected: String,
+			default: '0000',
+			extended: false,
+		},
+		PublicFlags: {
+			name: 'Flags',
 			expected: Number,
 			default: 0,
-			extended: false,
-		},
-		MaxUses: {
-			name: 'MaxUses',
-			expected: Number,
-			default: null,
-			extended: false,
-		},
-		Creator: {
-			name: 'Creator',
-			extended: true,
-			extends: 'GuildMember',
-		},
-		Deleteable: {
-			name: 'Deleteable',
-			expected: Boolean,
-			default: true,
 			extended: false,
 		},
 	},
 };
 
-export default Invite;
+export default FriendUser;
 
-export { Invite };
+export { FriendUser };

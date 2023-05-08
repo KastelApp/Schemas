@@ -9,52 +9,42 @@
  * GPL 3.0 Licensed
  */
 
-import { model, Schema } from 'mongoose';
+import type { Schema } from '../../../Types/Schema';
 
-const VerifcationLinkSchema = new Schema({
-	_id: {
-		type: String,
-		required: true,
+const Friend: Schema = {
+	type: Object,
+	data: {
+		Flags: {
+			name: 'Flags',
+			expected: Number,
+			default: 0,
+			extended: false,
+		},
+		Sender: {
+			name: 'Sender',
+			extends: 'RawUser',
+			extended: true,
+		},
+		Receiver: {
+			name: 'Receiver',
+			extends: 'RawUser',
+			extended: true,
+		},
+		SenderNickname: {
+			name: 'SenderNickname',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		ReceiverNickname: {
+			name: 'ReceiverNickname',
+			expected: String,
+			default: null,
+			extended: false,
+		},
 	},
+};
 
-	Code: {
-		type: String,
-		required: true,
-		index: true,
-	},
+export default Friend;
 
-	User: {
-		type: String,
-		required: true,
-		ref: 'Users',
-	},
-
-	CreatedDate: {
-		type: Number,
-		required: true,
-		default: Date.now(),
-	},
-
-	ExpireDate: {
-		type: Number,
-		required: true,
-		default: Date.now() + 1_000 * 60 * 60 * 24,
-	},
-
-	Ip: {
-		type: String,
-		required: true,
-		index: true,
-	},
-
-	Flags: {
-		type: Number,
-		required: true,
-		default: 0,
-		index: true,
-	},
-});
-
-export default model('VerifcationLink', VerifcationLinkSchema);
-
-export { VerifcationLinkSchema };
+export { Friend };

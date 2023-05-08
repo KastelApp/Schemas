@@ -11,7 +11,7 @@
 
 import type { Schema } from '../../../Types/Schema';
 
-const Invite: Schema = {
+const Message: Schema = {
 	type: Object,
 	data: {
 		Id: {
@@ -20,38 +20,55 @@ const Invite: Schema = {
 			default: null,
 			extended: false,
 		},
-		Expires: {
-			name: 'Expires',
-			expected: Date,
+		Author: {
+			name: 'Author',
+			extends: 'GuildMemberNR',
+			extended: true,
+		},
+		Content: {
+			name: 'Content',
+			expected: String,
 			default: null,
 			extended: false,
 		},
-		Uses: {
-			name: 'Uses',
+		AllowedMentions: {
+			name: 'AllowedMentions',
 			expected: Number,
 			default: 0,
 			extended: false,
 		},
-		MaxUses: {
-			name: 'MaxUses',
+		CreatedAt: {
+			name: 'CreatedDate',
 			expected: Number,
 			default: null,
 			extended: false,
 		},
-		Creator: {
-			name: 'Creator',
-			extended: true,
-			extends: 'GuildMember',
+		UpdatedAt: {
+			name: 'UpdatedDate',
+			expected: Number,
+			default: null,
+			extended: false,
 		},
-		Deleteable: {
-			name: 'Deleteable',
-			expected: Boolean,
-			default: true,
+		Nonce: {
+			name: 'Nonce',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		Flags: {
+			name: 'Flags',
+			expected: Number,
+			default: 0,
 			extended: false,
 		},
 	},
 };
 
-export default Invite;
+const Messages: Schema = {
+	type: Array,
+	data: Message.data,
+};
 
-export { Invite };
+export default Message;
+
+export { Message, Messages };

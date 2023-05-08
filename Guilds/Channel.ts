@@ -9,76 +9,75 @@
  * GPL 3.0 Licensed
  */
 
-import { model, Schema } from 'mongoose';
+import { ChannelTypes, AllowedMentions } from '../../../Constants.js';
+import type { Schema } from '../../../Types/Schema';
 
-const ChannelSchema = new Schema({
-	_id: {
-		type: String,
-		required: true,
-	},
-
-	Guild: {
-		// Allow easier deletion of role schemas when a guild owner deletes their guild
-		type: String,
-		required: false,
-		ref: 'Guilds',
-	},
-
-	Name: {
-		type: String,
-		required: true,
-	},
-
-	Description: {
-		type: String,
-		required: false,
-	},
-
-	Type: {
-		type: Number,
-		required: true,
-		default: 2,
-	},
-
-	Nsfw: {
-		type: Boolean,
-		required: false,
-	},
-
-	AllowedMentions: {
-		type: Number,
-		required: false,
-		default: 0,
-	},
-
-	Parent: {
-		type: String,
-		required: false,
-		ref: 'Channels',
-	},
-
-	Children: [
-		{
-			type: String,
-			required: false,
-			ref: 'Channels',
+const Channel: Schema = {
+	type: Object,
+	data: {
+		Id: {
+			name: '_id',
+			expected: String,
+			default: null,
+			extended: false,
 		},
-	],
-
-	Position: {
-		type: Number,
-		required: true,
-	},
-
-	PermissionsOverides: [
-		{
-			type: String,
-			required: false,
-			ref: 'PermissionsOverides',
+		Name: {
+			name: 'Name',
+			expected: String,
+			default: 'Unknown Channel Name',
+			extended: false,
 		},
-	],
-});
+		Description: {
+			name: 'Description',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		Type: {
+			name: 'Type',
+			expected: Number,
+			default: ChannelTypes.GuildText,
+			extended: false,
+		},
+		Nsfw: {
+			name: 'Nsfw',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		AllowedMentions: {
+			name: 'AllowedMentions',
+			expected: Number,
+			default: AllowedMentions.All,
+			extended: false,
+		},
+		Parent: {
+			name: 'Parent',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		Children: {
+			name: 'Children',
+			expected: Array,
+			default: null,
+			extended: false,
+		},
+		Position: {
+			name: 'Position',
+			expected: Number,
+			default: 0,
+			extended: false,
+		},
+		Permissions: {
+			name: 'Permissions',
+			expected: Number,
+			default: 0,
+			extended: false,
+		},
+	},
+};
 
-export default model('Channels', ChannelSchema);
+export default Channel;
 
-export { ChannelSchema };
+export { Channel };

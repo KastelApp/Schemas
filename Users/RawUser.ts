@@ -11,7 +11,7 @@
 
 import type { Schema } from '../../../Types/Schema';
 
-const Emoji: Schema = {
+const RawUser: Schema = {
 	type: Object,
 	data: {
 		Id: {
@@ -20,32 +20,80 @@ const Emoji: Schema = {
 			default: null,
 			extended: false,
 		},
-		Creator: {
-			name: 'Creator',
+		AvatarHash: {
+			name: 'AvatarHash',
 			expected: String,
 			default: null,
 			extended: false,
 		},
-		Name: {
-			name: 'Name',
+		Email: {
+			name: 'Email',
 			expected: String,
 			default: null,
 			extended: false,
 		},
-		EmojiHash: {
-			name: 'EmojiHash',
+		Username: {
+			name: 'Username',
 			expected: String,
-			default: null,
+			default: 'Unknown Username',
 			extended: false,
 		},
-		Disabled: {
-			name: 'Disabled',
+		Tag: {
+			name: 'Tag',
+			expected: String,
+			default: '0000',
+			extended: false,
+		},
+		TwoFa: {
+			name: 'TwoFa',
 			expected: Boolean,
 			default: false,
 			extended: false,
 		},
-		Public: {
-			name: 'Public',
+		TwoFaVerified: {
+			name: 'TwoFaVerified',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		Flags: {
+			name: 'Flags',
+			expected: Number,
+			default: 0,
+			extended: false,
+		},
+		Password: {
+			name: 'Password',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		Banned: {
+			name: 'Banned',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		BannedReason: {
+			name: 'BannedReason',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		Locked: {
+			name: 'Locked',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		AccountDeletionInProgress: {
+			name: 'AccountDeletionInProgress',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		EmailVerified: {
+			name: 'EmailVerified',
 			expected: Boolean,
 			default: false,
 			extended: false,
@@ -53,6 +101,6 @@ const Emoji: Schema = {
 	},
 };
 
-export default Emoji;
+export default RawUser;
 
-export { Emoji };
+export { RawUser };

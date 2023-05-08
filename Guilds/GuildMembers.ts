@@ -9,45 +9,42 @@
  * GPL 3.0 Licensed
  */
 
-// Gift Schema, Not used yet but might be used in the future
+import type { Schema } from '../../../Types/Schema';
 
-import { model, Schema } from 'mongoose';
-
-const GiftSchema = new Schema({
-	_id: {
-		// The gift token/id
-		type: String,
-		required: true,
+const GuildMembers: Schema = {
+	type: Array,
+	data: {
+		Id: {
+			name: '_id',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		User: {
+			name: 'User',
+			extended: true,
+			extends: 'FriendUser',
+		},
+		Roles: {
+			name: 'Roles',
+			extended: true,
+			extends: 'Roles',
+		},
+		Nickname: {
+			name: 'Nickname',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		JoinedAt: {
+			name: 'JoinedAt',
+			expected: Number,
+			default: Date.now(),
+			extended: false,
+		},
 	},
+};
 
-	User: {
-		type: String,
-		required: true,
-		ref: 'Users',
-	},
+export default GuildMembers;
 
-	Type: {
-		type: Number,
-		required: true,
-	},
-
-	MaxAge: {
-		type: Date,
-		required: true,
-	},
-
-	GiftLength: {
-		type: Date,
-		required: true,
-	},
-
-	UsedBy: {
-		type: String,
-		required: true,
-		ref: 'Users',
-	},
-});
-
-export default model('Gifts', GiftSchema);
-
-export { GiftSchema };
+export { GuildMembers };

@@ -11,47 +11,30 @@
 
 import type { Schema } from '../../../Types/Schema';
 
-const Invite: Schema = {
+const Tokens: Schema = {
 	type: Object,
 	data: {
-		Id: {
-			name: '_id',
+		Token: {
+			name: 'Token',
 			expected: String,
 			default: null,
 			extended: false,
 		},
-		Expires: {
-			name: 'Expires',
-			expected: Date,
-			default: null,
-			extended: false,
-		},
-		Uses: {
-			name: 'Uses',
-			expected: Number,
-			default: 0,
-			extended: false,
-		},
-		MaxUses: {
-			name: 'MaxUses',
+		CreatedDate: {
+			name: 'CreatedDate',
 			expected: Number,
 			default: null,
 			extended: false,
 		},
-		Creator: {
-			name: 'Creator',
-			extended: true,
-			extends: 'GuildMember',
-		},
-		Deleteable: {
-			name: 'Deleteable',
-			expected: Boolean,
-			default: true,
+		Ip: {
+			name: 'Ip',
+			expected: String,
+			default: null,
 			extended: false,
 		},
 	},
 };
 
-export default Invite;
+export default Tokens;
 
-export { Invite };
+export { Tokens };

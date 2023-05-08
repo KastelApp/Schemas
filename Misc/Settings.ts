@@ -9,97 +9,59 @@
  * GPL 3.0 Licensed
  */
 
-import { model, Schema } from 'mongoose';
-import Constants from '../../../Constants.js';
+import type { Schema } from '../../../Types/Schema';
 
-const SettingSchema = new Schema({
-	User: {
-		type: String,
-		ref: 'Users',
-		required: true,
-		index: true,
-	},
-
-	Status: {
-		type: String,
-		required: false,
-	},
-
-	Presence: {
-		type: Number,
-		required: true,
-		default: 0,
-	},
-
-	Tokens: {
-		type: [
-			{
-				Token: {
-					type: String,
-					required: true,
-					index: true,
-				},
-				CreatedDate: {
-					type: Number,
-					required: true,
-					default: Date.now(),
-				},
-				Ip: {
-					type: String,
-					required: true,
-				},
-			},
-		],
-		required: true,
-		default: [],
-	},
-
-	Theme: {
-		type: String,
-		required: true,
-		default: 'dark',
-	},
-
-	Language: {
-		// Not Used Yet (Will be used in the future)
-		type: String,
-		required: true,
-		default: 'en-US',
-	},
-
-	// Who can see your Status, online status, etc. (Not used yet)
-	// 0 = Everyone
-	// 1 = Friends
-	// 2 = Nobody
-	Privacy: {
-		type: Number,
-		required: true,
-		default: 0,
-	},
-
-	Mentions: [
-		{
-			Message: {
-				type: String,
-				required: true,
-				ref: 'Messages',
-			},
+const Settings: Schema = {
+	type: Object,
+	data: {
+		User: {
+			name: 'User',
+			extended: true,
+			extends: 'User',
 		},
-	],
-
-	MaxGuilds: {
-		type: Number,
-		required: true,
-		default: Constants.Settings.Max.GuildCount,
+		Status: {
+			name: 'Status',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		Presence: {
+			name: 'Presence',
+			expected: Number,
+			default: 0,
+			extended: false,
+		},
+		Tokens: {
+			name: 'Tokens',
+			extends: 'Tokens',
+			extended: true,
+		},
+		Theme: {
+			name: 'Theme',
+			expected: String,
+			default: 'dark',
+			extended: false,
+		},
+		Language: {
+			name: 'Language',
+			expected: String,
+			default: 'en-US',
+			extended: false,
+		},
+		Privacy: {
+			name: 'Privacy',
+			expected: Number,
+			default: 0,
+			extended: false,
+		},
+		Mentions: {
+			name: 'Mentions',
+			extended: true,
+			extends: 'Mentions',
+		},
 	},
+};
 
-	MaxFileUploadSize: {
-		type: Number,
-		required: true,
-		default: Constants.Settings.Max.MaxFileSize,
-	},
-});
+export default Settings;
 
-export default model('Settings', SettingSchema);
-
-export { SettingSchema };
+export { Settings };

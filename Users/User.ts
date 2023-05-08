@@ -9,132 +9,74 @@
  * GPL 3.0 Licensed
  */
 
-import { model, Schema } from 'mongoose';
-import Encryption from '../../Classes/Encryption.js';
+import type { Schema } from '../../../Types/Schema';
 
-const UserSchema = new Schema({
-	_id: {
-		type: String,
-		required: true,
-	},
-
-	Email: {
-		type: String,
-		required: true,
-		unique: true,
-		index: true,
-	},
-
-	EmailVerified: {
-		type: Boolean,
-		required: false,
-	},
-
-	Username: {
-		type: String,
-		required: true,
-		default: Encryption.encrypt('Ghost'),
-		index: true,
-	},
-
-	Tag: {
-		type: String,
-		required: true,
-		default: '0000',
-		index: true,
-	},
-
-	AvatarHash: {
-		type: String,
-		required: false,
-	},
-
-	Password: {
-		type: String,
-		required: true,
-	},
-
-	PhoneNumber: {
-		type: String,
-		required: false,
-	},
-
-	TwoFa: {
-		type: Boolean,
-		required: false,
-	},
-
-	TwoFaVerified: {
-		type: Boolean,
-		required: false,
-	},
-
-	TwoFaSecret: {
-		type: String,
-		required: false,
-	},
-
-	Ips: {
-		type: Array,
-		required: false,
-	},
-
-	Flags: {
-		type: Number,
-		required: false,
-	},
-
-	Guilds: [
-		{
-			type: String,
-			ref: 'Guilds',
+const User: Schema = {
+	type: Object,
+	data: {
+		Id: {
+			name: '_id',
+			expected: String,
+			default: null,
+			extended: false,
 		},
-	],
-
-	Dms: [
-		{
-			type: String,
-			required: false,
-			ref: 'Dms',
+		AvatarHash: {
+			name: 'AvatarHash',
+			expected: String,
+			default: null,
+			extended: false,
 		},
-	],
-
-	GroupChats: [
-		{
-			type: String,
-			required: false,
-			ref: 'Groupchats',
+		Email: {
+			name: 'Email',
+			expected: String,
+			default: null,
+			extended: false,
 		},
-	],
-
-	Bots: [
-		{
-			type: String,
-			ref: 'Users',
+		EmailVerified: {
+			name: 'EmailVerified',
+			expected: Boolean,
+			default: false,
+			extended: false,
 		},
-	],
-
-	Banned: {
-		type: Boolean,
-		required: false,
+		Username: {
+			name: 'Username',
+			expected: String,
+			default: 'Unknown Username',
+			extended: false,
+		},
+		Tag: {
+			name: 'Tag',
+			expected: String,
+			default: '0000',
+			extended: false,
+		},
+		TwoFa: {
+			name: 'TwoFa',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		TwoFaVerified: {
+			name: 'TwoFaVerified',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		PublicFlags: {
+			name: 'Flags',
+			expected: Number,
+			default: 0,
+			extended: false,
+		},
+		PhoneNumber: {
+			name: 'PhoneNumber',
+			expected: String,
+			default: null,
+			extended: false,
+		},
 	},
+};
 
-	BanReason: {
-		type: String,
-		required: false,
-	},
+export default User;
 
-	Locked: {
-		type: Boolean,
-		required: false,
-	},
-
-	AccountDeletionInProgress: {
-		type: Boolean,
-		required: false,
-	},
-});
-
-export default model('Users', UserSchema);
-
-export { UserSchema };
+export { User };

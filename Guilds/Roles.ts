@@ -9,10 +9,11 @@
  * GPL 3.0 Licensed
  */
 
+import { AllowedMentions } from '../../../Constants.js';
 import type { Schema } from '../../../Types/Schema';
 
-const Invite: Schema = {
-	type: Object,
+const Roles: Schema = {
+	type: Array,
 	data: {
 		Id: {
 			name: '_id',
@@ -20,28 +21,17 @@ const Invite: Schema = {
 			default: null,
 			extended: false,
 		},
-		Expires: {
-			name: 'Expires',
-			expected: Date,
-			default: null,
+		Name: {
+			name: 'Name',
+			expected: String,
+			default: 'Unknown Role Name',
 			extended: false,
 		},
-		Uses: {
-			name: 'Uses',
-			expected: Number,
-			default: 0,
+		AllowedNsfw: {
+			name: 'AllowedNsfw',
+			expected: Boolean,
+			default: false,
 			extended: false,
-		},
-		MaxUses: {
-			name: 'MaxUses',
-			expected: Number,
-			default: null,
-			extended: false,
-		},
-		Creator: {
-			name: 'Creator',
-			extended: true,
-			extends: 'GuildMember',
 		},
 		Deleteable: {
 			name: 'Deleteable',
@@ -49,9 +39,33 @@ const Invite: Schema = {
 			default: true,
 			extended: false,
 		},
+		AllowedMentions: {
+			name: 'AllowedMentions',
+			expected: Number,
+			default: AllowedMentions.All,
+			extended: false,
+		},
+		Hoisted: {
+			name: 'Hoisted',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		Color: {
+			name: 'Color',
+			expected: Number,
+			default: 16_744_272,
+			extended: false,
+		},
+		Permissions: {
+			name: 'Permissions',
+			expected: Number,
+			default: 0,
+			extended: false,
+		},
 	},
 };
 
-export default Invite;
+export default Roles;
 
-export { Invite };
+export { Roles };

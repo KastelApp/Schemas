@@ -9,29 +9,30 @@
  * GPL 3.0 Licensed
  */
 
-import { model, Schema } from 'mongoose';
+import type { Schema } from '../../../Types/Schema';
 
-const DmSchema = new Schema({
-	_id: {
-		type: String,
-		required: true,
+const Mention: Schema = {
+	type: Object,
+	data: {
+		Message: {
+			name: 'Message',
+			extended: true,
+			extends: 'Message',
+		},
 	},
+};
 
-	Creator: {
-		// First User
-		type: String,
-		required: true,
-		ref: 'Users',
+const Mentions: Schema = {
+	type: Array,
+	data: {
+		Message: {
+			name: 'Message',
+			extended: true,
+			extends: 'Message',
+		},
 	},
+};
 
-	Receiver: {
-		// Second User
-		type: String,
-		required: true,
-		ref: 'Users',
-	},
-});
+export default Mentions;
 
-export default model('Dm', DmSchema);
-
-export { DmSchema };
+export { Mentions, Mention };

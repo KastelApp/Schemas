@@ -9,47 +9,50 @@
  * GPL 3.0 Licensed
  */
 
-import { model, Schema } from 'mongoose';
-import Encryption from '../../Classes/Encryption.js';
+import type { Schema } from '../../../Types/Schema';
 
-const WebhookSchema = new Schema({
-	_id: {
-		type: String,
-		required: true,
+const Emojis: Schema = {
+	type: Array,
+	data: {
+		Id: {
+			name: '_id',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		Creator: {
+			name: 'Creator',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		Name: {
+			name: 'Name',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		EmojiHash: {
+			name: 'EmojiHash',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		Disabled: {
+			name: 'Disabled',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		Public: {
+			name: 'Public',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
 	},
+};
 
-	Guild: {
-		// Allow easier deletion of role schemas when a guild owner deletes their guild
-		type: String,
-		required: true,
-		ref: 'Guilds',
-	},
+export default Emojis;
 
-	Channel: {
-		type: String,
-		required: true,
-		ref: 'Channels',
-	},
-
-	Username: {
-		type: String,
-		required: true,
-		username: Encryption.encrypt('Ghost'),
-	},
-
-	Token: {
-		type: String,
-		required: true,
-		unqiue: true,
-	},
-
-	AllowedMentions: {
-		type: Number,
-		required: false,
-		default: 0,
-	},
-});
-
-export default model('Webhooks', WebhookSchema);
-
-export { WebhookSchema };
+export { Emojis };

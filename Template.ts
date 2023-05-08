@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-empty-file */
 /* !
  *   ██╗  ██╗ █████╗ ███████╗████████╗███████╗██╗
  *   ██║ ██╔╝██╔══██╗██╔════╝╚══██╔══╝██╔════╝██║
@@ -9,43 +10,25 @@
  * GPL 3.0 Licensed
  */
 
-import { model, Schema } from 'mongoose';
-import Encryption from '../../Classes/Encryption.js';
+// import type { Schema } from "../../Types/Schema";
 
-const FileSchema = new Schema({
-	_id: {
-		type: String,
-		required: true,
-	},
+// const Template: Schema = {
+//     type: Object,
+//     data: {
+//         example: {
+//             name: '_example',
+//             expected: String,
+//             default: 'This is an Example',
+//             extended: false
+//         },
+//         ExtendedExample: {
+//             name: '_extended',
+//             extended: true,
+//             extends: 'template2',
+//         },
+//     },
+// };
 
-	Message: {
-		type: String,
-		required: false,
-		ref: 'Messages',
-	},
+// export default Template;
 
-	Name: {
-		type: String,
-		required: true,
-		default: Encryption.encrypt('Unknown'),
-	},
-
-	CdnToken: {
-		type: String,
-		required: true,
-	},
-
-	Type: {
-		type: String,
-		required: true,
-	},
-
-	Deleted: {
-		type: Boolean,
-		required: false,
-	},
-});
-
-export default model('Files', FileSchema);
-
-export { FileSchema };
+// export { Template }

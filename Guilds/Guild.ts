@@ -9,108 +9,84 @@
  * GPL 3.0 Licensed
  */
 
-import { model, Schema } from 'mongoose';
-import Constants from '../../../Constants.js';
-import Encryption from '../../Classes/Encryption.js';
+import type { Schema } from '../../../Types/Schema';
 
-const GuildSchema = new Schema({
-	_id: {
-		type: String,
-		required: true,
-	},
-
-	Name: {
-		type: String,
-		required: true,
-		default: Encryption.encrypt('Unknown Guild'),
-	},
-
-	Description: {
-		type: String,
-		required: false,
-	},
-
-	Flags: {
-		type: Number,
-		required: false,
-		default: 0,
-	},
-
-	Owner: {
-		type: String,
-		required: true,
-		ref: 'GuildMembers',
-	},
-
-	CoOwners: [
-		{
-			type: String,
-			required: false,
-			ref: 'GuildMembers',
+const Guild: Schema = {
+	type: Object,
+	data: {
+		Id: {
+			name: '_id',
+			expected: String,
+			default: null,
+			extended: false,
 		},
-	],
-
-	Channels: [
-		{
-			type: String,
-			required: false,
-			ref: 'Channels',
+		Name: {
+			name: 'Name',
+			expected: String,
+			default: 'Unknown Guild Name',
+			extended: false,
 		},
-	],
-
-	Roles: [
-		{
-			type: String,
-			required: false,
-			ref: 'Roles',
+		Description: {
+			name: 'Description',
+			expected: String,
+			default: null,
+			extended: false,
 		},
-	],
-
-	Invites: [
-		{
-			type: String,
-			required: false,
-			ref: 'Invites',
+		Flags: {
+			name: 'Flags',
+			expected: Number,
+			default: 0,
+			extended: false,
 		},
-	],
-
-	Bans: [
-		{
-			type: String,
-			required: false,
-			ref: 'Bans',
+		Owner: {
+			name: 'Owner',
+			extended: true,
+			extends: 'GuildMember',
 		},
-	],
-
-	Members: [
-		{
-			type: String,
-			required: false,
-			ref: 'GuildMembers',
+		CoOwners: {
+			name: 'CoOwners',
+			extended: true,
+			extends: 'GuildMembers',
 		},
-	],
-
-	Emojis: [
-		{
-			type: String,
-			required: false,
-			ref: 'Emojis',
+		Channels: {
+			name: 'Channels',
+			extended: true,
+			extends: 'Channels',
 		},
-	],
-
-	MaxMembers: {
-		type: Number,
-		required: false,
-		default: Constants.Settings.Max.MemberCount,
+		Roles: {
+			name: 'Roles',
+			extended: true,
+			extends: 'Roles',
+		},
+		Bans: {
+			name: 'Bans',
+			extended: true,
+			extends: 'Bans',
+		},
+		Members: {
+			name: 'Members',
+			extended: true,
+			extends: 'GuildMembers',
+		},
+		Invites: {
+			name: 'Invites',
+			extended: true,
+			extends: 'Invites',
+		},
+		Emojis: {
+			name: 'Emojis',
+			extended: true,
+			extends: 'Emojis',
+		},
+		MaxMembers: {
+			name: 'MaxMembers',
+			extended: false,
+			expected: Number,
+			default: 100,
+		},
 	},
+};
 
-	Features: {
-		type: Number,
-		required: false,
-		default: 0,
-	},
-});
+export default Guild;
 
-export default model('Guilds', GuildSchema);
-
-export { GuildSchema };
+export { Guild };

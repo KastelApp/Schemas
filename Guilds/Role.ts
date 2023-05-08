@@ -9,68 +9,63 @@
  * GPL 3.0 Licensed
  */
 
-import { model, Schema } from 'mongoose';
-import Encryption from '../../Classes/Encryption.js';
+import { AllowedMentions } from '../../../Constants.js';
+import type { Schema } from '../../../Types/Schema';
 
-const RoleSchema = new Schema({
-	_id: {
-		type: String,
-		required: true,
+const Role: Schema = {
+	type: Object,
+	data: {
+		Id: {
+			name: '_id',
+			expected: String,
+			default: null,
+			extended: false,
+		},
+		Name: {
+			name: 'Name',
+			expected: String,
+			default: 'Unknown Role Name',
+			extended: false,
+		},
+		AllowedNsfw: {
+			name: 'AllowedNsfw',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		Deleteable: {
+			name: 'Deleteable',
+			expected: Boolean,
+			default: true,
+			extended: false,
+		},
+		AllowedMentions: {
+			name: 'AllowedMentions',
+			expected: Number,
+			default: AllowedMentions.All,
+			extended: false,
+		},
+		Hoisted: {
+			name: 'Hoisted',
+			expected: Boolean,
+			default: false,
+			extended: false,
+		},
+		Color: {
+			name: 'Color',
+			expected: Number,
+			default: 16_744_272,
+			extended: false,
+		},
+		Permissions: {
+			name: 'Permissions',
+			expected: Number,
+			default: 0,
+			extended: false,
+		},
 	},
+};
 
-	Guild: {
-		// Allow easier deletion of role schemas when a guild owner deletes their guild
-		type: String,
-		required: true,
-		ref: 'Guilds',
-	},
+export default Role;
 
-	Name: {
-		type: String,
-		required: true,
-		default: Encryption.encrypt('Unknown Role'),
-	},
-
-	AllowedNsfw: {
-		type: Boolean,
-		required: false,
-	},
-
-	Deleteable: {
-		type: Boolean,
-		required: true,
-		default: true,
-	},
-
-	AllowedMentions: {
-		type: Number,
-		required: false,
-		default: 0,
-	},
-
-	Hoisted: {
-		type: Boolean,
-		required: false,
-	},
-
-	Color: {
-		type: Number,
-		required: false,
-	},
-
-	Permissions: {
-		type: String,
-		required: true,
-		default: 0,
-	},
-
-	Position: {
-		type: Number,
-		required: true,
-		default: 0,
-	},
-});
-
-export default model('Roles', RoleSchema);
-
-export { RoleSchema };
+export { Role };
