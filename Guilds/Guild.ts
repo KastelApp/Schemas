@@ -20,6 +20,12 @@ const Guild: Schema = {
 			default: null,
 			extended: false,
 		},
+		Icon: {
+			name: 'Icon',
+			expected: String,
+			default: null,
+			extended: false,
+		},
 		Name: {
 			name: 'Name',
 			expected: String,
