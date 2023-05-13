@@ -62,6 +62,12 @@ const User: Schema = {
 			default: 0,
 			extended: false,
 		},
+		GlobalNickname: {
+			name: 'GlobalNickname',
+			expected: String,
+			default: null,
+			extended: false,
+		}
 	},
 };
 

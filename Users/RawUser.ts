@@ -98,6 +98,12 @@ const RawUser: Schema = {
 			default: false,
 			extended: false,
 		},
+		GlobalNickname: {
+			name: 'GlobalNickname',
+			expected: String,
+			default: null,
+			extended: false,
+		}
 	},
 };
 
