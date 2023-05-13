@@ -44,7 +44,7 @@ const UserSchema = new Schema({
 		index: true,
 	},
 
-	AvatarHash: {
+	Avatar: {
 		type: String,
 		required: false,
 	},
