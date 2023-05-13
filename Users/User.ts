@@ -20,8 +20,8 @@ const User: Schema = {
 			default: null,
 			extended: false,
 		},
-		AvatarHash: {
-			name: 'AvatarHash',
+		Avatar: {
+			name: 'Avatar',
 			expected: String,
 			default: null,
 			extended: false,
