@@ -55,6 +55,25 @@ const GuildMemberSchema = new Schema({
 		required: false,
 		default: 0,
 	},
+	
+	Timeouts: {
+		type: [
+			{
+				Channel: {
+					type: String,
+					required: true,
+					ref: 'Channels',
+				},
+				TimeoutUntil: { // when they can send messages again (like the channel may have a slowmode of 5 seconds, so they can't send messages for 5 seconds)
+					type: Number,
+					required: true,
+					default: Date.now(),
+				},
+			},
+		],
+		required: true,
+		default: [],
+	}
 });
 
 export default model('GuildMembers', GuildMemberSchema);
