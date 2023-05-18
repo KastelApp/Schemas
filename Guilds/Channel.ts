@@ -77,6 +77,12 @@ const ChannelSchema = new Schema({
 			ref: 'PermissionsOverides',
 		},
 	],
+	
+	Slowmode: {
+		type: Number,
+		required: false,
+		default: 0,
+	}
 });
 
 export default model('Channels', ChannelSchema);
