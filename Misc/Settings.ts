@@ -48,6 +48,11 @@ const SettingSchema = new Schema({
 					type: String,
 					required: true,
 				},
+				Flags: {
+					type: Number,
+					required: true,
+					default: 0,
+				}
 			},
 		],
 		required: true,
