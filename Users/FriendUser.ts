@@ -49,7 +49,7 @@ const FriendUser: Schema = {
 			expected: String,
 			default: null,
 			extended: false,
-		}
+		},
 	},
 };
 

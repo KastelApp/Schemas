@@ -44,18 +44,18 @@ const User: Schema = {
 			default: '0000',
 			extended: false,
 		},
-		TwoFa: {
-			name: 'TwoFa',
-			expected: Boolean,
-			default: false,
-			extended: false,
-		},
-		TwoFaVerified: {
-			name: 'TwoFaVerified',
-			expected: Boolean,
-			default: false,
-			extended: false,
-		},
+		// TwoFa: {
+		// 	name: 'TwoFa',
+		// 	expected: Boolean,
+		// 	default: false,
+		// 	extended: false,
+		// },
+		// TwoFaVerified: {
+		// 	name: 'TwoFaVerified',
+		// 	expected: Boolean,
+		// 	default: false,
+		// 	extended: false,
+		// },
 		Flags: {
 			name: 'Flags',
 			expected: Number,
@@ -67,7 +67,7 @@ const User: Schema = {
 			expected: String,
 			default: null,
 			extended: false,
-		}
+		},
 	},
 };
 

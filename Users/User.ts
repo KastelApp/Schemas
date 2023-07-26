@@ -32,12 +32,12 @@ const User: Schema = {
 			default: null,
 			extended: false,
 		},
-		EmailVerified: {
-			name: 'EmailVerified',
-			expected: Boolean,
-			default: false,
-			extended: false,
-		},
+		// EmailVerified: {
+		// 	name: 'EmailVerified',
+		// 	expected: Boolean,
+		// 	default: false,
+		// 	extended: false,
+		// },
 		Username: {
 			name: 'Username',
 			expected: String,
@@ -50,18 +50,18 @@ const User: Schema = {
 			default: '0000',
 			extended: false,
 		},
-		TwoFa: {
-			name: 'TwoFa',
-			expected: Boolean,
-			default: false,
-			extended: false,
-		},
-		TwoFaVerified: {
-			name: 'TwoFaVerified',
-			expected: Boolean,
-			default: false,
-			extended: false,
-		},
+		// TwoFa: {
+		// 	name: 'TwoFa',
+		// 	expected: Boolean,
+		// 	default: false,
+		// 	extended: false,
+		// },
+		// TwoFaVerified: {
+		// 	name: 'TwoFaVerified',
+		// 	expected: Boolean,
+		// 	default: false,
+		// 	extended: false,
+		// },
 		PublicFlags: {
 			name: 'Flags',
 			expected: Number,
@@ -79,7 +79,7 @@ const User: Schema = {
 			expected: String,
 			default: null,
 			extended: false,
-		}
+		},
 	},
 };
 

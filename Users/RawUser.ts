@@ -44,18 +44,18 @@ const RawUser: Schema = {
 			default: '0000',
 			extended: false,
 		},
-		TwoFa: {
-			name: 'TwoFa',
-			expected: Boolean,
-			default: false,
-			extended: false,
-		},
-		TwoFaVerified: {
-			name: 'TwoFaVerified',
-			expected: Boolean,
-			default: false,
-			extended: false,
-		},
+		// TwoFa: {
+		// 	name: 'TwoFa',
+		// 	expected: Boolean,
+		// 	default: false,
+		// 	extended: false,
+		// },
+		// TwoFaVerified: {
+		// 	name: 'TwoFaVerified',
+		// 	expected: Boolean,
+		// 	default: false,
+		// 	extended: false,
+		// },
 		Flags: {
 			name: 'Flags',
 			expected: Number,
@@ -68,42 +68,42 @@ const RawUser: Schema = {
 			default: null,
 			extended: false,
 		},
-		Banned: {
-			name: 'Banned',
-			expected: Boolean,
-			default: false,
-			extended: false,
-		},
-		BannedReason: {
-			name: 'BannedReason',
-			expected: String,
-			default: null,
-			extended: false,
-		},
-		Locked: {
-			name: 'Locked',
-			expected: Boolean,
-			default: false,
-			extended: false,
-		},
-		AccountDeletionInProgress: {
-			name: 'AccountDeletionInProgress',
-			expected: Boolean,
-			default: false,
-			extended: false,
-		},
-		EmailVerified: {
-			name: 'EmailVerified',
-			expected: Boolean,
-			default: false,
-			extended: false,
-		},
+		// Banned: {
+		// 	name: 'Banned',
+		// 	expected: Boolean,
+		// 	default: false,
+		// 	extended: false,
+		// },
+		// BannedReason: {
+		// 	name: 'BannedReason',
+		// 	expected: String,
+		// 	default: null,
+		// 	extended: false,
+		// },
+		// Locked: {
+		// 	name: 'Locked',
+		// 	expected: Boolean,
+		// 	default: false,
+		// 	extended: false,
+		// },
+		// AccountDeletionInProgress: {
+		// 	name: 'AccountDeletionInProgress',
+		// 	expected: Boolean,
+		// 	default: false,
+		// 	extended: false,
+		// },
+		// EmailVerified: {
+		// 	name: 'EmailVerified',
+		// 	expected: Boolean,
+		// 	default: false,
+		// 	extended: false,
+		// },
 		GlobalNickname: {
 			name: 'GlobalNickname',
 			expected: String,
 			default: null,
 			extended: false,
-		}
+		},
 	},
 };
 
