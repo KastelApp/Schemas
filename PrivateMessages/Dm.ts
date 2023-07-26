@@ -16,20 +16,32 @@ const DmSchema = new Schema({
 		type: String,
 		required: true,
 	},
-
-	Creator: {
-		// First User
+	
+	Recipients: [
+		{
+			User: {
+				type: String,
+				required: true,
+				ref: 'Users',
+			},
+			Flags: {
+				type: Number,
+				required: true,
+			}
+		}
+	],
+	
+	Channel: {
 		type: String,
 		required: true,
-		ref: 'Users',
+		ref: 'Channels',
 	},
-
-	Receiver: {
-		// Second User
-		type: String,
+	
+	Flags: {
+		type: Number,
 		required: true,
-		ref: 'Users',
-	},
+		default: 0,
+	}
 });
 
 export default model('Dm', DmSchema);

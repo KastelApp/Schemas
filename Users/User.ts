@@ -25,11 +25,6 @@ const UserSchema = new Schema({
 		index: true,
 	},
 
-	EmailVerified: {
-		type: Boolean,
-		required: false,
-	},
-
 	Username: {
 		type: String,
 		required: true,
@@ -56,16 +51,6 @@ const UserSchema = new Schema({
 
 	PhoneNumber: {
 		type: String,
-		required: false,
-	},
-
-	TwoFa: {
-		type: Boolean,
-		required: false,
-	},
-
-	TwoFaVerified: {
-		type: Boolean,
 		required: false,
 	},
 
@@ -99,14 +84,6 @@ const UserSchema = new Schema({
 		},
 	],
 
-	GroupChats: [
-		{
-			type: String,
-			required: false,
-			ref: 'Groupchats',
-		},
-	],
-
 	Bots: [
 		{
 			type: String,
@@ -114,26 +91,6 @@ const UserSchema = new Schema({
 		},
 	],
 
-	Banned: {
-		type: Boolean,
-		required: false,
-	},
-
-	BanReason: {
-		type: String,
-		required: false,
-	},
-
-	Locked: {
-		type: Boolean,
-		required: false,
-	},
-
-	AccountDeletionInProgress: {
-		type: Boolean,
-		required: false,
-	},
-	
 	GlobalNickname: {
 		type: String,
 		required: false,	

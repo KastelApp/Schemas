@@ -23,7 +23,6 @@ import MessageSchema from './Misc/Message.js';
 import SettingSchema from './Misc/Settings.js';
 import VerifcationLinkSchema from './Misc/VerificationLinks.js';
 import DmSchema from './PrivateMessages/Dm.js';
-import GroupchatSchema from './PrivateMessages/GroupChat.js';
 import FriendSchema from './Users/Friend.js';
 import GiftSchema from './Users/Gift.js';
 import UserSchema from './Users/User.js';
@@ -39,7 +38,6 @@ export default {
 	FileSchema,
 	MessageSchema,
 	DmSchema,
-	GroupchatSchema,
 	FriendSchema,
 	GiftSchema,
 	UserSchema,
@@ -59,7 +57,6 @@ export { default as WebhookSchema } from './Guilds/Webhook.js';
 export { default as FileSchema } from './Misc/File.js';
 export { default as MessageSchema } from './Misc/Message.js';
 export { default as DmSchema } from './PrivateMessages/Dm.js';
-export { default as GroupchatSchema } from './PrivateMessages/GroupChat.js';
 export { default as FriendSchema } from './Users/Friend.js';
 export { default as GiftSchema } from './Users/Gift.js';
 export { default as UserSchema } from './Users/User.js';
