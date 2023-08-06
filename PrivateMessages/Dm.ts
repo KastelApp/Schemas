@@ -16,7 +16,7 @@ const DmSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	
+
 	Recipients: [
 		{
 			User: {
@@ -27,21 +27,21 @@ const DmSchema = new Schema({
 			Flags: {
 				type: Number,
 				required: true,
-			}
-		}
+			},
+		},
 	],
-	
+
 	Channel: {
 		type: String,
 		required: true,
 		ref: 'Channels',
 	},
-	
+
 	Flags: {
 		type: Number,
 		required: true,
 		default: 0,
-	}
+	},
 });
 
 export default model('Dm', DmSchema);
