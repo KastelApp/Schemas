@@ -18,7 +18,7 @@ const GuildSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	
+
 	Icon: {
 		type: String,
 		required: false,

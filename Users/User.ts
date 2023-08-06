@@ -93,8 +93,8 @@ const UserSchema = new Schema({
 
 	GlobalNickname: {
 		type: String,
-		required: false,	
-	}
+		required: false,
+	},
 });
 
 export default model('Users', UserSchema);
