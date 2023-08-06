@@ -58,8 +58,8 @@ const User: Schema = {
 		// },
 		Flags: {
 			name: 'Flags',
-			expected: Number,
-			default: 0,
+			expected: String,
+			default: '0',
 			extended: false,
 		},
 		GlobalNickname: {

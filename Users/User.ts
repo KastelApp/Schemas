@@ -64,8 +64,8 @@ const User: Schema = {
 		// },
 		PublicFlags: {
 			name: 'Flags',
-			expected: Number,
-			default: 0,
+			expected: String,
+			default: '0',
 			extended: false,
 		},
 		PhoneNumber: {
